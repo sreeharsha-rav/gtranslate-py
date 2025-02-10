@@ -1,0 +1,17 @@
+2025-02-10 22:45:53,066 - app.services.stt_service - ERROR - STT error: module 'google.cloud.speech_v2.types.cloud_speech' has no attribute 'RecognitionAudio'
+2025-02-10 22:51:31,763 - app.services.stt_service - ERROR - STT error: type object 'RecognitionConfig' has no attribute 'AudioEncoding'
+2025-02-10 22:52:14,276 - app.services.stt_service - ERROR - STT error: type object 'RecognitionConfig' has no attribute 'AudioEncoding'
+2025-02-10 22:52:46,145 - app.services.stt_service - ERROR - STT error: Unknown field for RecognitionConfig: encoding
+2025-02-10 22:53:01,504 - app.services.stt_service - ERROR - STT error: Unknown field for RecognitionConfig: sample_rate_hertz
+2025-02-10 22:53:17,087 - app.services.stt_service - ERROR - STT error: Unknown field for RecognitionConfig: enable_automatic_punctuation
+2025-02-10 22:57:49,114 - app.services.stt_service - ERROR - STT error: Unknown field for RecognizeRequest: audio_content
+2025-02-10 22:58:52,428 - app.services.stt_service - ERROR - STT error: 400 Invalid `model`: field must be non-empty.
+2025-02-10 23:31:11,592 - app.services.stt_service - ERROR - STT error: 400 Config contains unsupported fields. See `error_details_ext` extension for details. [field_violations {
+  field: "features.enable_automatic_punctuation"
+  description: "Recognizer does not support feature: automatic_punctuation"
+}
+]
+2025-02-10 23:37:15,840 - app.services.tts_service - ERROR - TTS error: type object 'AudioEncoding' has no attribute 'BASE64'
+2025-02-10 23:41:26,738 - app.services.tts_service - ERROR - TTS error: type object 'AudioEncoding' has no attribute 'BASE64'
+2025-02-10 23:41:36,541 - app.services.tts_service - ERROR - TTS error: type object 'AudioEncoding' has no attribute 'BASE64'
+2025-02-10 23:44:01,042 - app.services.tts_service - ERROR - TTS error: type object 'AudioEncoding' has no attribute 'BASE64'
