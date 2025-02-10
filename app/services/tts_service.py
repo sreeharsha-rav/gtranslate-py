@@ -6,10 +6,8 @@ It converts text input into natural-sounding speech with customizable voice para
 
 Dependencies:
     - google-cloud-texttospeech: Google Cloud Text-to-Speech API client library
-    - base64: For encoding audio content
 """
 
-import base64
 import logging
 from google.cloud import texttospeech
 

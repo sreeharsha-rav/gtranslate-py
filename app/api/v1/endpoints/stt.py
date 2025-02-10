@@ -49,28 +49,7 @@ async def transcribe_speech(
             - language_code: Language code used
     
     Raises:
-        HTTPException(400): If the request parameters are invalid
-        HTTPException(500): If there's an internal speech-to-text service error
-    
-    Example:
-        Request:
-            POST /stt/synthesize
-            {
-                "audioContent": "<base64_encoded_audio>",
-                "languageCode": "en-US",
-                "audioEncoding": "LINEAR16"
-            }
-        
-        Response:
-            {
-                "text": "Hello world",
-                "confidence": 0.98,
-                "languageCode": "en-US"
-            }
-    
-    Note:
-        The audio should be 16kHz sample rate for optimal results.
-        Supported audio encodings include LINEAR16, FLAC, MULAW, AMR, AMR_WB.
+        HTTPException: (400) For invalid parameters or (500) for internal errors.
     """
     try:
         result = await service.transcribe_audio(

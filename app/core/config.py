@@ -11,14 +11,11 @@ Environment Variables:
     - API_V1_STR: API version prefix
     - PROJECT_NAME: Name of the project
     - VERSION: API version
-    - ALLOWED_ORIGINS: List of allowed CORS origins
     - GOOGLE_PROJECT_ID: Google Cloud project ID
     - GOOGLE_CREDENTIALS_FILE: Path to Google Cloud credentials file
 """
 
-from typing import List
 from pydantic_settings import BaseSettings
-from pydantic import AnyHttpUrl
 
 class Settings(BaseSettings):
     """
@@ -32,7 +29,6 @@ class Settings(BaseSettings):
         API_V1_STR (str): API version prefix for all endpoints
         PROJECT_NAME (str): Name of the project for documentation
         VERSION (str): Current API version
-        ALLOWED_ORIGINS (List[AnyHttpUrl]): List of allowed CORS origins
         GOOGLE_PROJECT_ID (str): Google Cloud project identifier
         GOOGLE_CREDENTIALS_FILE (str): Path to Google Cloud service account credentials
         TARGET_LANGUAGES (List[str]): List of supported target languages for translation
@@ -45,7 +41,6 @@ class Settings(BaseSettings):
     API_V1_STR: str = "/api"
     PROJECT_NAME: str = "Translation Service API"
     VERSION: str = "1.0.0"
-    ALLOWED_ORIGINS: List[AnyHttpUrl] = ["http://localhost:5173"]
     
     # Google Cloud settings
     GOOGLE_PROJECT_ID: str
