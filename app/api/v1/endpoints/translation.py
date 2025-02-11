@@ -13,7 +13,7 @@ Dependencies:
 
 from fastapi import APIRouter, HTTPException, Depends
 from app.schemas.requests import TranslateRequest, DetectLanguageRequest
-from app.schemas.responses import TranslateResponse, SupportedLanguagesResponse, DetectLanguageResponse
+from app.schemas.responses import TranslateResponse, DetectLanguageResponse
 from app.services.translation_service import TranslationService
 
 router = APIRouter()

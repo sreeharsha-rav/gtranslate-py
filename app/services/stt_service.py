@@ -9,12 +9,9 @@ Dependencies:
     - base64: For decoding audio content
 """
 
-import base64
-import logging
 from google.cloud.speech_v2 import SpeechClient
 from google.cloud.speech_v2.types import cloud_speech
 from app.core.config import settings
-logger = logging.getLogger(__name__)
 
 class STTService:
     """
@@ -96,7 +93,7 @@ class STTService:
             }
             
         except Exception as e:
-            logger.error(f"STT error: {str(e)}")
+            print(f"STT error: {str(e)}")
             raise 
 
     async def transcibe_streaming(
@@ -147,5 +144,5 @@ class STTService:
             }
         
         except Exception as e:
-            logger.error(f"Speech-to-Text streaming error: {str(e)}")
+            print(f"Speech-to-Text streaming error: {str(e)}")
             raise 

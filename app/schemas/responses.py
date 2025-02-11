@@ -47,17 +47,6 @@ class STTResponse(BaseModel):
     confidence: float = Field(..., description="Confidence score of the transcription")
     languageCode: str = Field(..., description="Detected language code")
 
-class SupportedLanguagesResponse(BaseModel):
-    """
-    Supported Languages Response Model
-    
-    Lists all supported languages for translation.
-    
-    Attributes:
-        languages (dict[str, str]): Dictionary of language codes and names
-    """
-    languages: dict[str, str] = Field(..., description="Dictionary of language codes and names")
-
 class DetectLanguageResponse(BaseModel):
     """
     Language Detection Response Model

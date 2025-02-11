@@ -8,10 +8,7 @@ Dependencies:
     - google-cloud-texttospeech: Google Cloud Text-to-Speech API client library
 """
 
-import logging
 from google.cloud import texttospeech
-
-logger = logging.getLogger(__name__)
 
 class TTSService:
     """
@@ -80,5 +77,5 @@ class TTSService:
             }
 
         except Exception as e:
-            logger.error(f"TTS error: {str(e)}")
+            print(f"TTS error: {str(e)}")
             raise 

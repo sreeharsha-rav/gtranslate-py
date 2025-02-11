@@ -10,11 +10,9 @@ Dependencies:
     - Settings from core.config for supported language configuration
 """
 
-import logging
 from google.cloud import translate_v3
 from app.core.config import settings
 
-logger = logging.getLogger(__name__)
 
 class TranslationService:
     """
@@ -79,7 +77,7 @@ class TranslationService:
                 raise Exception("No translation result")
         
         except Exception as e:
-            logger.error(f"Translation error: {str(e)}")
+            print(f"Translation error: {str(e)}")
             raise
 
     async def detect_language(self, text: str) -> dict:
@@ -101,5 +99,5 @@ class TranslationService:
             else:
                 raise Exception("No language detection result")
         except Exception as e:
-            logger.error(f"Language detection error: {str(e)}")
+            print(f"Language detection error: {str(e)}")
             raise
