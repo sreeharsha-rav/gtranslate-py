@@ -12,8 +12,8 @@ Environment Variables:
     - PROJECT_NAME: Name of the project
     - VERSION: API version
     - GOOGLE_PROJECT_ID: Google Cloud project ID
-    - GOOGLE_CREDENTIALS_FILE: Path to Google Cloud credentials file
-"""
+    - GOOGLE_APPLICATION_CREDENTIALS: Path to the Google Cloud service account key file
+    """
 
 from pydantic_settings import BaseSettings
 
@@ -30,8 +30,7 @@ class Settings(BaseSettings):
         PROJECT_NAME (str): Name of the project for documentation
         VERSION (str): Current API version
         GOOGLE_PROJECT_ID (str): Google Cloud project identifier
-        GOOGLE_CREDENTIALS_FILE (str): Path to Google Cloud service account credentials
-        TARGET_LANGUAGES (List[str]): List of supported target languages for translation
+        GOOGLE_APPLICATION_CREDENTIALS (str): Path to the Google Cloud service account key file
     
     Note:
         All settings can be overridden through environment variables.
@@ -44,10 +43,12 @@ class Settings(BaseSettings):
     
     # Google Cloud settings
     GOOGLE_PROJECT_ID: str
-    GOOGLE_CREDENTIALS_FILE: str = "google_credentials.json"
+    GOOGLE_APPLICATION_CREDENTIALS: str
     
     class Config:
         case_sensitive = True
         env_file = ".env"
 
 settings = Settings()
+
+
