@@ -12,8 +12,10 @@ Environment Variables:
     All configuration is handled through the settings module (see core.config)
 """
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
+from starlette.exceptions import HTTPException as StarletteHTTPException
 
 from app.core.config import settings
 from app.api.v1.router import api_router
@@ -48,3 +50,9 @@ async def health_check():
         Response: {"status": "healthy"}
     """
     return {"status": "healthy"}
+
+@app.exception_handler(StarletteHTTPException)
+async def http_exception_handler(request: Request, exc: StarletteHTTPException):
+    response = JSONResponse({"detail": exc.detail}, status_code=exc.status_code)
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    return response
