@@ -12,6 +12,7 @@ Dependencies:
 
 from google.cloud import translate_v3
 from app.core.config import settings
+from app.services.auth_service import AuthService
 
 
 class TranslationService:
@@ -29,7 +30,9 @@ class TranslationService:
         """
         Initialize the Translation Service with Google Cloud Translation client.
         """
-        self.client = translate_v3.TranslationServiceClient()
+        # Use AuthService to obtain credentials
+        credentials = AuthService.get_credentials()
+        self.client = translate_v3.TranslationServiceClient(credentials=credentials)
         self.parent = f"projects/{settings.GOOGLE_PROJECT_ID}/locations/global"
     
     async def translate_text(

@@ -12,6 +12,7 @@ Dependencies:
 from google.cloud.speech_v2 import SpeechClient
 from google.cloud.speech_v2.types import cloud_speech
 from app.core.config import settings
+from app.services.auth_service import AuthService
 
 class STTService:
     """
@@ -28,7 +29,9 @@ class STTService:
         """
         Initialize the Speech-to-Text Service with Google Cloud STT client.
         """
-        self.client = SpeechClient()
+        # Use AuthService to obtain credentials
+        credentials = AuthService.get_credentials()
+        self.client = SpeechClient(credentials=credentials)
 
     async def transcribe_audio(
         self,

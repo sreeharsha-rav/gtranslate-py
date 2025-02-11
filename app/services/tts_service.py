@@ -9,6 +9,7 @@ Dependencies:
 """
 
 from google.cloud import texttospeech
+from app.services.auth_service import AuthService
 
 class TTSService:
     """
@@ -26,7 +27,9 @@ class TTSService:
         """
         Initialize the Text-to-Speech Service with Google Cloud TTS client.
         """
-        self.client = texttospeech.TextToSpeechClient()
+        # Obtain credentials through AuthService
+        credentials = AuthService.get_credentials()
+        self.client = texttospeech.TextToSpeechClient(credentials=credentials)
     
     async def synthesize_speech(
         self,
