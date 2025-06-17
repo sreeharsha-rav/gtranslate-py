@@ -18,7 +18,7 @@ grpcio-status==1.70.0
 h11==0.14.0
 idna==3.10
 proto-plus==1.26.0
-protobuf==5.29.3
+protobuf==5.29.5
 pyasn1==0.6.1
 pyasn1_modules==0.4.1
 pydantic==2.10.6
